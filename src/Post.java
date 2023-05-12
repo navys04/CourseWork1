@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class Post
 {
@@ -13,11 +12,15 @@ public class Post
     private final Storage postStorage;
 
     public String getAddress() { return address; }
-    public Package[] getPackages(final PackageOwner packageOwner) { return postStorage.getPackages(packageOwner); }
-
-    public void addNewPackage(Package newPackage, PackageOwner packageOwner)
+    public Package[] getPackages(final PackageCredentials packageCredentials) { return postStorage.getPackages(packageCredentials); }
+    public Package[] getPackagesByType(final PackageCredentials packageCredentials, final PackageType inPackageType)
     {
-        postStorage.addPackage(newPackage, packageOwner);
+        return postStorage.getPackagesByType(packageCredentials, inPackageType);
+    }
+
+    public void addNewPackage(Package newPackage, PackageCredentials packageOwner, PackageCredentials packageReceiver)
+    {
+        postStorage.addPackage(newPackage, packageOwner, packageReceiver);
         newPackage.setPost(this);
     }
 }

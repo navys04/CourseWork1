@@ -1,5 +1,3 @@
-import java.util.Map;
-
 public class StoragePlace
 {
     public StoragePlace(int newHorizontalPos, int newVerticalPos)
@@ -13,7 +11,8 @@ public class StoragePlace
     public boolean isBusy = false;
     private Package storagePackage;
 
-    private PackageOwner packageOwner;
+    private PackageCredentials packageOwner;
+    private PackageCredentials packageReceiver;
 
     public void setStoragePackage(Package newStoragePackage)
     {
@@ -22,6 +21,10 @@ public class StoragePlace
     }
 
     public Package getStoragePackage() { return storagePackage; }
-    public PackageOwner getPackageOwner() { return packageOwner; }
-    public void setPackageOwner(PackageOwner inPackageOwner) { packageOwner = inPackageOwner; }
+
+    public PackageCredentials getPackageOwner() { return packageOwner; }
+    public void setPackageOwner(PackageCredentials inPackageCredentials) { packageOwner = inPackageCredentials; }
+
+    public PackageCredentials getPackageReceiver() { return packageReceiver; }
+    public void setPackageReceiver(PackageCredentials inPackageCredentials) { packageReceiver = inPackageCredentials; }
 }
